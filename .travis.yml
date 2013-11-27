@@ -1,8 +1,8 @@
 language: erlang
 
-script:
-  - "make test"
+env:
+  - ARCH=x86
+  - ARCH=arm
 
-notifications:
-  email: true
-  irc: "irc.freenode.org#luvit"
+script:
+  - "bash -ex .travis-ci.sh"

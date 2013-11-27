@@ -32,6 +32,11 @@ local is_windows = os.type() == 'win32'
 
 local openCount = 0
 
+if process.env['ARCH'] == 'arm' then
+    -- Skip this test under chrooted ARM environment
+    process.exit()
+end
+
 function open(...)
   openCount = openCount + 1
   return FS._open(...)
